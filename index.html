@@ -8,6 +8,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Budget">
 <title>Mon budget</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
 <style>
 :root{--bg:#eef1f4;--card:#fff;--ink:#14213d;--mute:#5c6678;--line:#d9dfe7;--in:#0f7b6c;--out:#b3261e;--accent:#14213d;--on:#fff;--r:14px;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -222,6 +225,7 @@ $('#bkLoad').onclick=function(){$('#file').click()};
 $('#file').onchange=function(){if(this.files[0])restore(this.files[0]);this.value=''};
 
 $('#dt').value=today();fillCats();render();
+try{if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0)navigator.serviceWorker.register('sw.js')}catch(e){}
 })();
 </script>
 </body>
